@@ -1,9 +1,9 @@
-from django.db import models
+from rest_framework.viewsets import ModelViewSet
+
+from core.models import Autor
+from core.serializers import AutorSerializer
 
 
-class Autor(models.Model):
-    nome = models.CharField(max_length=100)
-    email = models.URLField(max_length=200, blank=True, null=True)
-
-    def __str__(self):
-        return self.nome
+class AutorViewSet(ModelViewSet):
+    queryset = Autor.objects.all()
+    serializer_class = AutorSerializer

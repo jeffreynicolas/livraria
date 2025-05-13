@@ -1,9 +1,9 @@
-from django.db import models
+from rest_framework.serializers import ModelSerializer
+
+from core.models import Autor
 
 
-class Autor(models.Model):
-    nome = models.CharField(max_length=100)
-    email = models.URLField(max_length=200, blank=True, null=True)
-
-    def __str__(self):
-        return self.nome
+class AutorSerializer(ModelSerializer):
+    class Meta:
+        model = Autor
+        fields = '__all__'

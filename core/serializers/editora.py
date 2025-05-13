@@ -1,9 +1,9 @@
-from django.db import models
+from rest_framework.serializers import ModelSerializer
+
+from core.models import Categoria
 
 
-class Editora(models.Model):
-    nome = models.CharField(max_length=100)
-    site = models.URLField(max_length=200, blank=True, null=True)
-
-    def __str__(self):
-        return self.nome
+class CategoriaSerializer(ModelSerializer):
+    class Meta:
+        model = Categoria
+        fields = '__all__'
